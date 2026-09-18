@@ -1,4 +1,4 @@
-import { MdClose, MdDelete } from "react-icons/md";
+import { MdClose} from "react-icons/md";
 import type { ITechnology } from "../../Type";
 
 interface IselectedCards {
@@ -36,7 +36,7 @@ const StackSection = ({ selectedCards, setSelectedCards }: IselectedCards) => {
                         <div>
                             {selectedCards.map((technology) => (
                                 <div key={technology.id}
-                                    className="flex justify-between items-center gap-3 border-1 border-gray-200 rounded-xl p-3 mt-3">
+                                    className="flex justify-between items-center gap-3 border border-gray-200 rounded-xl p-3 mt-3">
                                     <div className="flex ">
 
                                         <img src={technology.icon} alt={technology.name} className="w-10 h-10 object-contain" />

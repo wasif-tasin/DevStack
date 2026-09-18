@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { ITechnology } from "../../Type";
 
 interface TechnologyProps {
