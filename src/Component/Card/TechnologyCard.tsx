@@ -1,10 +1,21 @@
+import { useState } from "react";
 import type { ITechnology } from "../../Type";
 
 interface TechnologyProps {
     technology: ITechnology;
+    selectedCards: ITechnology[];
+    setSelectedCards: React.Dispatch<React.SetStateAction<ITechnology[]>>;
 }
 
-const TechnologyCard = ({ technology }: TechnologyProps) => {
+const TechnologyCard = ({ technology, selectedCards, setSelectedCards }: TechnologyProps) => {
+
+    const [isAdded, setIsAdded] = useState(false);
+
+    const handleAddedTechnology = () => {
+        setIsAdded(true)
+        setSelectedCards([...selectedCards, technology])
+    }
+
     return (
         <div className="card bg-base-100 border border-gray-200 shadow-sm mt-8 rounded-2xl">
             <div className="flex justify-between items-start m-5">
@@ -40,8 +51,11 @@ const TechnologyCard = ({ technology }: TechnologyProps) => {
                         ⭐ {technology.rating}
                     </span>
                 </div>
-                <button className="w-full bg-black text-white rounded-lg py-2 mt-4">
-                    Add to Stack
+                <button
+                    disabled={isAdded}
+                    onClick={() => handleAddedTechnology()}
+                    className={`w-full rounded-lg py-2 mt-4 ${isAdded ? "bg-gray-100 text-gray-600" : "bg-black text-white"}`}>
+                    {isAdded === true ? "Added" : "Add to Stack"}
                 </button>
 
             </div>

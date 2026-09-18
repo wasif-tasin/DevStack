@@ -1,14 +1,15 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { ITechnology } from "../../Type";
 import TechnologyCard from "./TechnologyCard";
+import StackSection from "./StackSection";
 
 interface CardProps {
     cardDataPromise: Promise<ITechnology[]>;
 }
 
 const AvailableTechnology = ({ cardDataPromise }: CardProps) => {
+    const [selectedCards, setSelectedCards] = useState<ITechnology[]>([]);
     const card = use(cardDataPromise);
-    console.log(card)
     return (
         <div className="container mx-auto">
             <div>
@@ -24,27 +25,14 @@ const AvailableTechnology = ({ cardDataPromise }: CardProps) => {
                         <TechnologyCard
                             technology={technology}
                             key={technology.id}
+                            selectedCards = {selectedCards}
+                            setSelectedCards = {setSelectedCards}
                         />
                     ))}
                 </div>
 
                 {/* Right Side Stack Card Section */}
-
-                <div className="w-90  bg-base-100 border-2 p-4 rounded-2xl border-gray-200 shadow-sm mt-8">
-                    <h3 className="font-bold text-lg">
-                        Your Stack
-                    </h3>
-
-                    <p className="text-sm text-gray-400 mt-1">
-                        No technologies selected yet.
-                    </p>
-
-                    <div className="border border-dashed rounded-xl h-24 mt-4 flex items-center justify-center">
-                        <span className="text-sm text-gray-400">
-                            Your stack is empty.
-                        </span>
-                    </div>
-                </div>
+                <StackSection selectedCards = {selectedCards} setSelectedCards = {setSelectedCards}></StackSection>
 
             </div>
         </div>
