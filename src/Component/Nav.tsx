@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa';
 
 const Nav = () => {
     return (
-        <div>
+        <div className='sticky top-0 z-50'>
               <nav className="bg-[#fffefe] mt-4">
             <div className="container mx-auto flex justify-between items-center">
                 <img
@@ -12,20 +12,20 @@ const Nav = () => {
                     className="w-32 md:w-auto"
                 />
 
-                <ul className="hidden md:flex gap-4 items-center">
-                    <li>Home</li>
-                    <li>Technologies</li>
-                    <li>Projects</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                <ul className="hidden md:flex gap-4 items-center cursor-pointer">
+                    <li className="hover:text-pink-500">Home</li>
+                    <li className="hover:text-pink-500">Technologies</li>
+                    <li className="hover:text-pink-500">Projects</li>
+                    <li className="hover:text-pink-500">About</li>
+                    <li className="hover:text-pink-500">Contact</li>
                 </ul>
 
-                <div className="hidden md:flex items-center">
-                    <button className="pr-4">
+                <div className="hidden md:flex items-center ">
+                    <button className="pr-4 cursor-pointer">
                         Sign In
                     </button>
 
-                    <button className="btn btn-active btn-error text-white bg-[#d81b7f] rounded-4xl">
+                    <button className="btn btn-active btn-error text-white bg-[#d81b7f] rounded-4xl cursor-pointer">
                         Sign Up
                     </button>
                 </div>
