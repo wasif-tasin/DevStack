@@ -54,3 +54,44 @@ In this project, I used `useState` to store the selected technologies:
 
 ```tsx
 const [selectedCards, setSelectedCards] = useState<ITechnology[]>([]);
+
+
+### iv. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+`useEffect` is used to handle side effects such as API calls and data fetching.
+
+In this project, I did not use `useEffect` to load the JSON data. I used a Promise with React `Suspense` and the `use()` hook instead.
+
+
+### v. Why does every item in a `.map()` list need a unique `key` prop?
+
+A unique `key` helps React identify each item in a list. It helps React efficiently update, add, or remove items when the list changes.
+
+
+### vi. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different UI based on a condition.
+
+I used it to show an empty stack message when no technology is selected.
+
+```tsx
+selectedCards.length === 0
+  ? "Your stack is empty."
+  : `${selectedCards.length} Technology Selected`
+
+
+### vii. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+A parent component passes data to a child component using **props**.
+
+In this project, `AvailableTechnology` passes `selectedCards` and `setSelectedCards` to `TechnologyCard`.
+
+The child component uses `setSelectedCards` to update the parent's state.
+
+```tsx
+<TechnologyCard
+  technology={technology}
+  selectedCards={selectedCards}
+  setSelectedCards={setSelectedCards}
+/>
+
