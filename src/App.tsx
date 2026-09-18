@@ -2,7 +2,7 @@ import { Suspense, useState } from "react";
 import Banner from "./Component/Banner"
 import Nav from "./Component/Nav"
 import type { ITechnology } from "./Type";
-import Card from "./Component/Card/Card";
+import AvailableTechnology from "./Component/Card/AvailableTechnology";
 
 const cardFetch = async (): Promise<ITechnology[]> => {
   const response = await fetch('../public/data.json');
@@ -19,7 +19,7 @@ function App() {
       <Nav></Nav>
       <Banner></Banner>
       <Suspense fallback={<h2>Loading.....</h2>}>
-      <Card cardDataPromise = {cardDataPromise}></Card>
+      <AvailableTechnology cardDataPromise = {cardDataPromise}></AvailableTechnology>
       </Suspense>
     </>
   )
