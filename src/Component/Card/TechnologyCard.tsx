@@ -9,12 +9,11 @@ interface TechnologyProps {
 
 const TechnologyCard = ({ technology, selectedCards, setSelectedCards }: TechnologyProps) => {
 
-    const [isAdded, setIsAdded] = useState(false);
+    const isAdded = selectedCards.some((item) => item.id === technology.id);
 
     const handleAddedTechnology = () => {
-        setIsAdded(true)
-        setSelectedCards([...selectedCards, technology])
-    }
+        setSelectedCards([...selectedCards, technology]);
+    };
 
     return (
         <div className="card bg-base-100 border border-gray-200 shadow-sm mt-8 rounded-2xl">
@@ -53,8 +52,8 @@ const TechnologyCard = ({ technology, selectedCards, setSelectedCards }: Technol
                 </div>
                 <button
                     disabled={isAdded}
-                    onClick={() => handleAddedTechnology()}
-                    className={`w-full rounded-lg py-2 mt-4 ${isAdded ? "bg-gray-100 text-gray-600" : "bg-black text-white"}`}>
+                    onClick={handleAddedTechnology}
+                    className={`w-full cursor-pointer rounded-lg py-2 mt-4 ${isAdded ? "bg-gray-100 text-gray-600" : "bg-black text-white"}`}>
                     {isAdded === true ? "Added" : "Add to Stack"}
                 </button>
 

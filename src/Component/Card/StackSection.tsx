@@ -1,5 +1,5 @@
+import { MdClose, MdDelete } from "react-icons/md";
 import type { ITechnology } from "../../Type";
-import TechnologyCard from "./TechnologyCard";
 
 interface IselectedCards {
     selectedCards: ITechnology[];
@@ -9,7 +9,7 @@ interface IselectedCards {
 const StackSection = ({ selectedCards, setSelectedCards }: IselectedCards) => {
 
     const handleRemoveTechnologyCards = (technology: ITechnology) => {
-        const restTechnologyCards = selectedCards.filter(selectedCards => selectedCards.name != technology.name)
+        const restTechnologyCards = selectedCards.filter(item => item.id != technology.id);
         setSelectedCards(restTechnologyCards)
     }
     return (
@@ -33,18 +33,22 @@ const StackSection = ({ selectedCards, setSelectedCards }: IselectedCards) => {
                         <div>
                             {selectedCards.map((technology) => (
                                 <div key={technology.id}
-                                    className="flex items-center gap-3 border rounded-xl p-3">
-                                    <img src={technology.icon} alt={technology.name} className="w-10 h-10 object-contain" />
+                                    className="flex justify-between items-center gap-3 border-2 border-gray-300 rounded-xl p-3 mt-3">
+                                    <div className="flex ">
 
-                                    <div>
-                                        <h4 className="font-bold"> {technology.name}</h4>
-                                        <p className="text-sm text-gray-400"> {technology.category}</p>
+                                        <img src={technology.icon} alt={technology.name} className="w-10 h-10 object-contain" />
+                                        <div>
+                                            <h4 className="font-bold"> {technology.name}</h4>
+                                            <p className="text-sm text-gray-400"> {technology.category}</p>
+                                        </div>
                                     </div>
+                                    <button className=" text-2xl cursor-pointer" onClick={() => handleRemoveTechnologyCards(technology)}>
+                                           <MdClose />
+                                    </button>
                                 </div>
                             ))}
                         </div>
-                    )
-                }
+                    )}
             </div>
         </div>
     );

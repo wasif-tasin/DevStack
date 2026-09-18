@@ -14,7 +14,7 @@ const AvailableTechnology = ({ cardDataPromise }: CardProps) => {
         <div className="container mx-auto">
             <div>
                 <h2 className="text-5xl font-bold">Explore the <span className="text-[#E14AA4]">Technologies</span> </h2>
-                <p className="mt-3 text-[22px] text-gray-500">Pick one technology per category to build your ideal stack.</p>
+                <p className="mt-3 text-[20px] text-gray-500">Pick one technology per category to build your ideal stack.</p>
             </div>
             <div className="flex gap-6 items-start">
 

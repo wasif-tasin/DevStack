@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <div>
               <nav className="bg-[#fffefe] mt-4">
-            <div className="container mx-auto px-4 flex justify-between items-center">
+            <div className="container mx-auto flex justify-between items-center">
                 <img
                     src={Logo}
                     alt=""
